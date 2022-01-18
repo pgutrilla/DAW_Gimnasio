@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ActivitieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('members', MemberController::class);
+// Route::get('members', [MemberController::class, 'index']);
+// Route::get('members/create', [MemberController::class, 'create']);
+// Route::get('members/{id}', [MemberController::class, 'show']);
+// Route::post('members', [MemberController::class, 'store']);
+// Route::get('members/{id}/edit', [MemberController::class, 'edit']);
+// Route::put('members/{id}', [MemberController::class, 'update']);
+// Route::delete('members/{id}', [MemberController::class, 'destroy']);
+
+Route::resource('activities', ActivitieController::class);
+// Route::get('activities', [ActivitieController::class, 'index']);
+// Route::get('activities/create', [ActivitieController::class, 'create']);
+// Route::get('activities/{id}', [ActivitieController::class, 'show']);
+// Route::post('activities', [ActivitieController::class, 'store']);
+// Route::get('activities/{id}/edit', [ActivitieController::class, 'edit']);
+// Route::put('activities/{id}', [ActivitieController::class, 'update']);
+// Route::delete('activities/{id}', [ActivitieController::class, 'destroy']);

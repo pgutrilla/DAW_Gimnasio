@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders;;
 
-use App\Models\Member;
+use App\Models\Activity;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call(MemberSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(ActivitySeeder::class);
+        $this->call(UserSeeder::class);
+        
     }
 }

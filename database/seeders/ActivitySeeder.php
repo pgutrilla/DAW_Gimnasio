@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Activitie;
+use App\Models\Activity;
 
-
-class ActivitieSeeder extends Seeder
+class ActivitySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +14,7 @@ class ActivitieSeeder extends Seeder
      */
     public function run()
     {
-        Activitie::create([
+        Activity::create([
             'name' => 'Crosfit',
             'days' => 'L,M,X,J,V',
             'n_sessions' => '5',

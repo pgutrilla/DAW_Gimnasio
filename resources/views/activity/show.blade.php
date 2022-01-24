@@ -6,32 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Miembro nº {{$activitie}}</h1>
+    <h1>Miembro nº {{$activity}}</h1>
     
     <ul>
         <li>
             <strong>Nombre</strong>
-            {{ $activitie->name }}
+            {{ $activity->name }}
         </li>
         <li>
             <strong>Dias</strong>
-            {{ $activitie->days }}
+            {{ $activity->days }}
         </li>
         <li>
             <strong>Nº Sesiones</strong>
-            {{ $activitie->n_sessions }}
+            {{ $activity->n_sessions }}
         </li>
         <li>
             <strong>Horario</strong>
-            {{ $activitie->schedule }}
+            {{ $activity->schedule }}
         </li>
         <li>
             <strong>Duración</strong>
-            {{ $activitie->duration }}
+            {{ $activity->duration }}
         </li>
         <li>
             <strong>Nº Participantes</strong>
-            {{ $activitie->max_participant }}
+            {{ $activity->max_participant }}
         </li>
     </ul>
 </body>

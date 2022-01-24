@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activitie;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class ActivitieController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ActivitieController extends Controller
      */
     public function index()
     {
-        $activities = Activitie::all();
-
-        return view('activitie.index', ['activities' => $activities]);
+        //
     }
 
     /**
@@ -43,23 +41,21 @@ class ActivitieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show( $id )
+    public function show(Role $role)
     {
-        $activitie = Activitie::find( $id );
-
-        return view('activitie.show', ['activitie' => $activitie]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
         //
     }
@@ -68,10 +64,10 @@ class ActivitieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -79,10 +75,10 @@ class ActivitieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
         //
     }

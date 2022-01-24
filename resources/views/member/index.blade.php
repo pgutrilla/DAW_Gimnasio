@@ -22,12 +22,7 @@
 </tr>
 @forelse ($members as $member)
 <tr>
-    <td>{{ $member->dni }}</td>
-    <td>{{ $member->name }}</td>
-    <td>{{ $member->weight }}</td>
-    <td>{{ $member->height }}</td>
-    <td>{{ $member->birth_date }}</td>
-    <td>{{ $member->gender }}</td>
+     
     <td> <a href="/members/{{$member->id}}">Ver</a></td>
 </tr>
 @empty

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\Http\Request;
-use App\Models\Member;
 
-class MemberController extends Controller
+class ActivityController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $members = Member::all();
+        $activities = Activity::all();
 
-        return view('member.index', ['members' => $members]);
+        return view('activity.index', ['activities' => $activities]);
     }
 
     /**
@@ -26,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        //
     }
 
     /**
@@ -37,9 +37,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        $member = Member::create( $request->all() );
-
-        return redirect('/members');
+        //
     }
 
     /**
@@ -48,9 +46,11 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show( $id )
     {
-        return view('member.show', ['member' => $member]);
+        $activity = Activity::find( $id );
+
+        return view('activity.show', ['activity' => $activity]);
     }
 
     /**
@@ -59,9 +59,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( Member $member )
+    public function edit($id)
     {
-        return view( 'member.edit', ['member' => $member] );
+        //
     }
 
     /**
@@ -71,12 +71,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member )
+    public function update(Request $request, $id)
     {
-        $member->fill( $request->all() );
-
-        $member->save();
-        return redirect('/members');
+        //
     }
 
     /**

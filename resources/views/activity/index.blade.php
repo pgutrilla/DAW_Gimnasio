@@ -20,15 +20,15 @@
     <th>Nº Participantes</th>
     <th>Ver</th>
 </tr>
-@forelse ($activities as $activitie)
+@forelse ($activities as $activity)
 <tr>
-    <td>{{ $activitie->name }}</td>
-    <td>{{ $activitie->days }}</td>
-    <td>{{ $activitie->n_sessions }}</td>
-    <td>{{ $activitie->schedule }}</td>
-    <td>{{ $activitie->duration }}</td>
-    <td>{{ $activitie->max_participant }}</td>
-    <td> <a href="/activities/{{$activitie->id}}">Ver</a></td>
+    <td>{{ $activity->name }}</td>
+    <td>{{ $activity->days }}</td>
+    <td>{{ $activity->n_sessions }}</td>
+    <td>{{ $activity->schedule }}</td>
+    <td>{{ $activity->duration }}</td>
+    <td>{{ $activity->max_participant }}</td>
+    <td> <a href="/activities/{{$activity->id}}">Ver</a></td>
 </tr>
 @empty
 <tr>

@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Activity extends Model
 {
-
-    protected $fillable = ['code', 'name', 'abreviation'];
-
     use HasFactory;
 }

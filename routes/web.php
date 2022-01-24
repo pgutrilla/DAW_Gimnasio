@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\MemberController;
-use App\Http\Controllers\ActivitieController;
+use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +28,7 @@ Route::resource('members', MemberController::class);
 // Route::put('members/{id}', [MemberController::class, 'update']);
 // Route::delete('members/{id}', [MemberController::class, 'destroy']);
 
-Route::resource('activities', ActivitieController::class);
+Route::resource('activities', ActivityController::class);
 // Route::get('activities', [ActivitieController::class, 'index']);
 // Route::get('activities/create', [ActivitieController::class, 'create']);
 // Route::get('activities/{id}', [ActivitieController::class, 'show']);
@@ -36,3 +36,7 @@ Route::resource('activities', ActivitieController::class);
 // Route::get('activities/{id}/edit', [ActivitieController::class, 'edit']);
 // Route::put('activities/{id}', [ActivitieController::class, 'update']);
 // Route::delete('activities/{id}', [ActivitieController::class, 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

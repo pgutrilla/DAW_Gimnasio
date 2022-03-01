@@ -35,11 +35,12 @@ Route::resource('users', UserController::class);
 
 Route::resource('activities', ActivityController::class);
 
-Route::resource('sesions', SesionController::class);
-// Route::get('sesions/fill_month', [SesionController::class, 'debug_fill_month']);
+Route::get('sesions/fill_month', [SesionController::class, 'debug_fill_month']);
 Route::get('sesions/search', [SesionController::class, 'search']);
 Route::get('sesions/filter', [SesionController::class, 'filter']);
 Route::post('sesions/sign', [SesionController::class, 'sign']);
+Route::resource('sesions', SesionController::class);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

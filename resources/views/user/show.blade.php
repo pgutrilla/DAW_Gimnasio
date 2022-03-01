@@ -6,32 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Miembro nº {{$member}}</h1>
+    <h1>Miembro nº {{$user}}</h1>
 
     <ul>
         <li>
             <strong>DNI</strong>
-            {{ $member->dni }}
+            {{ $user->dni }}
         </li>
         <li>
             <strong>Nombre</strong>
-            {{ $member->name }}
+            {{ $user->name }}
         </li>
         <li>
             <strong>Peso</strong>
-            {{ $member->weight }}
+            {{ $user->weight }}
         </li>
         <li>
             <strong>Altura</strong>
-            {{ $member->height }}
+            {{ $user->height }}
         </li>
         <li>
             <strong>Fecha de nacimiento</strong>
-            {{ $member->birth_date }}
+            {{ $user->birth_date }}
         </li>
         <li>
             <strong>Género</strong>
-            {{ $member->gender }}
+            {{ $user->gender }}
         </li>
     </ul>
 </body>

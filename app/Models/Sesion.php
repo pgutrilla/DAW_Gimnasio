@@ -13,7 +13,7 @@ class Sesion extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function sesions() { 
-        return $this->belongsTo(User::class);
+    public function activity() { 
+        return $this->belongsTo(Activity::class);
     }
 }

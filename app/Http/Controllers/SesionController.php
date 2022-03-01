@@ -132,7 +132,7 @@ class SesionController extends Controller
         $arrDias = ['Monday'];
 
         // $activity = Activity::find( $id );
-        $activity = Activity::find( 3 );
+        $activity = Activity::find( 2 );
 
         // echo $fecha->hour;
         // echo $fecha->minute;

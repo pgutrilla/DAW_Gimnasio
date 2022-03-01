@@ -9,8 +9,8 @@
     <td>{{$study->code}} </td>
     <td>{{$study->name}} </td>
     <td>{{$study->abreviation}} </td>
-    <td> <a class="btn btn-primary btn-sm" href="/studies/{{$study->id}}">Ver</a></td>
-    <td> <a class="btn btn-primary btn-sm" href="/studies/{{$study->id}}/edit">Editar</a></td>
+    <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/studies/{{$study->id}}">Ver</a></td>
+    <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/studies/{{$study->id}}/edit">Editar</a></td>
 </tr>
 @empty
 <tr>

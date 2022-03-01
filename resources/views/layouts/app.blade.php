@@ -42,10 +42,10 @@
                         <a class="nav-link" href="/users">Usuarios</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/activities">Trabajadores</a>
+                        <a class="nav-link" href="/activities">Actividades</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/sesions">Servicios</a>
+                        <a class="nav-link" href="/sesions">Sesiones</a>
                     </li>
                 </ul>
             </div>

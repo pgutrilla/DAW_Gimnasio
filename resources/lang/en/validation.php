@@ -128,6 +128,11 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'height' => 'The :attribute debe ser valido.',
+    'weight' => 'The :attribute debe ser valido.',
+    'sex' => 'The :attribute debe ser valido.',
+    'birth' => 'The :attribute debe ser valido.',
+    'dni' => 'The :attribute debe ser valido.',
 
     /*
     |--------------------------------------------------------------------------

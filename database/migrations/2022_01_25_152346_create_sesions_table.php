@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitiesTable extends Migration
+class CreateSesionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('sesions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->integer('duration');
-            $table->integer('max_participant');
+            $table->timestamp('date_start')->nullable();
+            $table->timestamp('date_end')->nullable();
             $table->timestamps();
         });
     }
@@ -29,7 +27,7 @@ class CreateActivitiesTable extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::dropIfExists('activities');
+    {   
+        Schema::dropIfExists('sesions');
     }
 }

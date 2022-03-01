@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\MemberController;
+// use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SesionController;
 use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('members', MemberController::class);
+Auth::routes();
+
+Route::resource('users', UserController::class);
 // Route::get('members', [MemberController::class, 'index']);
 // Route::get('members/create', [MemberController::class, 'create']);
 // Route::get('members/{id}', [MemberController::class, 'show']);
@@ -29,14 +34,15 @@ Route::resource('members', MemberController::class);
 // Route::delete('members/{id}', [MemberController::class, 'destroy']);
 
 Route::resource('activities', ActivityController::class);
-// Route::get('activities', [ActivitieController::class, 'index']);
-// Route::get('activities/create', [ActivitieController::class, 'create']);
-// Route::get('activities/{id}', [ActivitieController::class, 'show']);
-// Route::post('activities', [ActivitieController::class, 'store']);
-// Route::get('activities/{id}/edit', [ActivitieController::class, 'edit']);
-// Route::put('activities/{id}', [ActivitieController::class, 'update']);
-// Route::delete('activities/{id}', [ActivitieController::class, 'destroy']);
 
-Auth::routes();
+Route::resource('sesions', SesionController::class);
+// Route::get('sesions/fill_month', [SesionController::class, 'debug_fill_month']);
+Route::get('sesions/search', [SesionController::class, 'search']);
+Route::get('sesions/filter', [SesionController::class, 'filter']);
+Route::post('sesions/sign', [SesionController::class, 'sign']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('prueba', function(){
+})->middleware('role');

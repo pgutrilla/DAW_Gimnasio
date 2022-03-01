@@ -1,0 +1,67 @@
+.display-flex{
+  display: flex;
+}
+
+}
+
+    /* Clases para aplicar rotacion a los elementos */
+.rotation-1-deg-right{
+    transform: rotate(-1deg);
+}
+
+.rotation-2-deg-right{
+    transform: rotate(-2deg);
+}
+
+.rotation-3-deg-right{
+    transform: rotate(-3deg);
+}
+
+.rotation-1-deg-left{
+    transform: rotate(1deg);
+}
+
+.rotation-2-deg-left{
+    transform: rotate(2deg);
+}
+
+.rotation-3-deg-left{
+    transform: rotate(3deg);
+}
+
+    /* Clases genericas de margenes para aplicar a los elementos */
+.m-right-5{
+    margin-right: 5px;
+}
+
+.m-top-10{
+    margin-top: 10px;
+}
+
+.m-top-20{
+    margin-top: 20px;
+}
+
+.m-top-30{
+    margin-top: 30px;
+}
+
+.m-bottom-10{
+    margin-bottom: 10px;
+}
+
+.m-bottom-20{
+    margin-bottom: 20px;
+}
+
+.m-bottom-30{
+    margin-bottom: 30px;
+}
+
+.m-right-10{
+    margin-right: 10px;
+}
+
+.full-width{
+    width:100%;
+}

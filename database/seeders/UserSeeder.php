@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gym.com',
             'email_verified_at' => NULL,
             'password' => Hash::make('password'),
-            'role_id' => 2 ,            
+            // 'role_id' => 2 ,            
         ]);
         User::create([
             'dni' => '23261740Z',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'email' => 'admin2@gym.com',
             'email_verified_at' => NULL,
             'password' => Hash::make('password'),
-            'role_id' => 3 ,
+            // 'role_id' => 3 ,
             
         ]);
     }

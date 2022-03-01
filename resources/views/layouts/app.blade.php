@@ -17,7 +17,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+
+    <script src="{{ asset('js/search.js')}}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/default.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/colors.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,6 +35,20 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/users">Usuarios</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/activities">Trabajadores</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/sesions">Servicios</a>
+                    </li>
+                </ul>
+            </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->

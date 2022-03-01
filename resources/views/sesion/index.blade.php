@@ -18,7 +18,7 @@
             <th>Nombre</th>
             <th>Descripion</th>
             <th>Duracion</th>
-            <th>Participantes</th>
+            <th>Max-Participantes</th>
             <th colspan="3">Acciones</th>
         </tr>
         @forelse ($activities as $activity)

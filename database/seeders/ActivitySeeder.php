@@ -16,11 +16,23 @@ class ActivitySeeder extends Seeder
     {
         Activity::create([
             'name' => 'Crosfit',
-            'days' => 'L,M,X,J,V',
-            'n_sessions' => '5',
-            'schedule' => '2000-07-01',
+            'description' => 'Es hacer muchas cosas',
             'duration' => '30',
             'max_participant' => '10',
+        ]);
+
+        Activity::create([
+            'name' => 'Spinning',
+            'description' => 'Montar en bicicleta',
+            'duration' => '120',
+            'max_participant' => '30',
+        ]);
+
+        Activity::create([
+            'name' => 'Step',
+            'description' => 'Subir escaleras pero no',
+            'duration' => '60',
+            'max_participant' => '20',
         ]);
     }
 }

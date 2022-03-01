@@ -6,32 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Miembro nº {{$activity}}</h1>
-    
+    <h1>Estudion nº {{$study}}</h1>
+
+
     <ul>
         <li>
+            <strong>Código</strong>
+            {{ $study->code }}
+        </li>
+        <li>
             <strong>Nombre</strong>
-            {{ $activity->name }}
+            {{ $study->name }}
         </li>
         <li>
-            <strong>Dias</strong>
-            {{ $activity->days }}
-        </li>
-        <li>
-            <strong>Nº Sesiones</strong>
-            {{ $activity->n_sessions }}
-        </li>
-        <li>
-            <strong>Horario</strong>
-            {{ $activity->schedule }}
-        </li>
-        <li>
-            <strong>Duración</strong>
-            {{ $activity->duration }}
-        </li>
-        <li>
-            <strong>Nº Participantes</strong>
-            {{ $activity->max_participant }}
+            <strong>Abreviatura</strong>
+            {{ $study->abreviation }}
         </li>
     </ul>
 </body>

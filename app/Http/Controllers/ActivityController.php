@@ -26,7 +26,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('activity.create');
     }
 
     /**
@@ -37,7 +37,8 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $activity = Activity::create($request->all());
+        return redirect('/activities');
     }
 
     /**
@@ -46,10 +47,10 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( $id )
+    // public function show( $id )
+    public function show( Activity $activity )
     {
-        $activity = Activity::find( $id );
-
+        // $activity = Activity::find( $id );
         return view('activity.show', ['activity' => $activity]);
     }
 
@@ -59,9 +60,10 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    // public function edit($id)
+    public function edit( Activity $activity )
     {
-        //
+        return view('activity.edit', ['activity' => $activity]);
     }
 
     /**
@@ -71,9 +73,12 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Activity $activity)
     {
-        //
+        $activity->fill($request->all());
+
+        $activity->save();
+        return redirect('/activities');
     }
 
     /**
@@ -84,6 +89,8 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $activities = Activity::find($id);
+        $activities->delete();
+        return redirect('/activities');
     }
 }

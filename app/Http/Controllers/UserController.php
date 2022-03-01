@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $userl = Auth::user();
+
+        $users = User::all();
+        return view('user.index', ['users' => $users, 'userl' => $userl]);
     }
 
     /**
@@ -24,7 +33,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -35,51 +44,59 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        return redirect('/users');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    // public function show($id)
+    public function show( User $user )
     {
-        //
+        return view('user.show', ['user' => $user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    // public function edit($id)
+    public function edit( User $user )
     {
-        //
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->fill($request->all());
+
+        $user->save();
+        return redirect('/users');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users');
     }
 }

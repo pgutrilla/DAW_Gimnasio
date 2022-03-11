@@ -9,11 +9,17 @@ class Sesion extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['date_start', 'date_end', 'activity_id'];
+
     public function users() { 
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function activity() { 
         return $this->belongsTo(Activity::class);
+    }
+
+    public function hasUser( User $user ) {   
+        return $this->users->contains( $user );
     }
 }

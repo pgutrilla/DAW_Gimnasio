@@ -61,10 +61,7 @@
             @error('fecha')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        </div>
-
-        <div>
-            <label for="hora_inicio">Hora de inicio</label>
+        
             <input type="time" name="hora_inicio" value="{{ old('hora') }}"> 
             @error('hora')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -77,10 +74,7 @@
             @error('fecha')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        </div>
-
-        <div>
-            <label for="hora_fin">Hora de fin</label>
+            
             <input type="time" name="hora_fin" value="{{ old('hora') }}"> 
             @error('hora')
                 <div class="alert alert-danger">{{ $message }}</div>

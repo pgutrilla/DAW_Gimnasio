@@ -6,22 +6,22 @@
         <div class="col-md-8">
         <h1>Actualización de estudios</h1>
 
-        <form action="/studies/{{$study->id}}" method="post">
+        <form action="/sesions/{{$sesion->id}}" method="post">
         @csrf
         <input type="hidden" name="_method" value="PUT">
         <div>
             <label for="code">Código</label>
-            <input type="text" name="code" value="{{$study->code}}"> 
+            <input type="text" name="code" value="{{$sesion->code}}"> 
         </div>
 
         <div>
             <label for="name">Nombre</label>
-            <input type="text" name="name" value="{{$study->name}}"> 
+            <input type="text" name="name" value="{{$sesion->name}}"> 
         </div>
 
         <div>
             <label for="abreviation">Abreviatura</label>
-            <input type="text" name="abreviation" value="{{$study->abreviation}}"> 
+            <input type="text" name="abreviation" value="{{$sesion->abreviation}}"> 
         </div>
 
         <div>

@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
       <h1>Lista de usuarios
+        @if($userl->rol == "admin")      
           <a href="/users/create" class="btn btn-primary float-right">
               Nuevo
           </a>
+        @endif  
       </h1>
 
       <p>
@@ -34,15 +36,17 @@
             <td>{{ $user->email}} </td>
             <td>{{ $user->birth_date}} </td>
             <td>{{ $user->gender }}</td>
-            <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/users/{{$user->id}}">Ver</a></td>
-            <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/users/{{$user->id}}/edit">Editar</a></td>
-            <td style="padding: 0.15rem;"> 
-                <form action="/users/{{$user->id}}" method="post">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
-                </form>                
-            </td>
+            <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/users/{{$user->id}}">Ver</a></td>            
+            @if($userl->rol == "admin")         
+              <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/users/{{$user->id}}/edit">Editar</a></td>
+              <td style="padding: 0.15rem;"> 
+                  <form action="/users/{{$user->id}}" method="post">
+                      @csrf
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
+                  </form>                
+              </td>
+            @endif
           </tr>
         @endforeach
       </table>

@@ -7,9 +7,12 @@
 
 
         <h1>Lista de actividades
-            <a href="/activities/create" class="btn btn-primary float-right">
-                Nuevo
-            </a>
+            
+            @if($userl->rol == "admin")      
+                <a href="/activities/create" class="btn btn-primary float-right">
+                    Nuevo
+                </a>
+            @endif   
         </h1>
 
 
@@ -28,14 +31,16 @@
             <td>{{$activity->duration}} </td>
             <td>{{$activity->max_participant}} </td>
             <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/activities/{{$activity->id}}">Ver</a></td>
-            <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/activities/{{$activity->id}}/edit">Editar</a></td>
-            <td style="padding: 0.15rem;"> 
-                <form action="/activities/{{$activity->id}}" method="post">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
-                </form>                
-            </td>
+            @if($userl->rol == "admin")
+                <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/activities/{{$activity->id}}/edit">Editar</a></td>
+                <td style="padding: 0.15rem;"> 
+                    <form action="/activities/{{$activity->id}}" method="post">
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
+                    </form>                
+                </td>
+            @endif
         </tr>
         @empty
         <tr>

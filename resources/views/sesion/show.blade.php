@@ -1,38 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Miembro nº {{$member}}</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container-fluid">
+    <h1>Sesion nº {{$sesion->id}}</h1>
 
     <ul>
         <li>
-            <strong>DNI</strong>
-            {{ $member->dni }}
+            <strong>Actividad</strong>
+            {{ $sesion->activity->name }}
         </li>
         <li>
-            <strong>Nombre</strong>
-            {{ $member->name }}
+            <strong>Fecha Inicio</strong>
+            {{ $sesion->date_start }}
         </li>
         <li>
-            <strong>Peso</strong>
-            {{ $member->weight }}
+            <strong>Fecha Fin</strong>
+            {{ $sesion->date_end }}
         </li>
-        <li>
-            <strong>Altura</strong>
-            {{ $member->height }}
-        </li>
-        <li>
-            <strong>Fecha de nacimiento</strong>
-            {{ $member->birth_date }}
-        </li>
-        <li>
-            <strong>Género</strong>
-            {{ $member->gender }}
-        </li>
+
     </ul>
-</body>
-</html>
+    @endsection
+</div>

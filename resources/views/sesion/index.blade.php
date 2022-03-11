@@ -7,9 +7,11 @@
 
 
         <h1>Lista de sesiones
-            <a href="/sesions/create" class="btn btn-primary float-right">
-                Nuevo
-            </a>
+            @if($userl->rol == "admin")      
+                <a href="/sesions/create" class="btn btn-primary float-right">
+                    Alta
+                </a>
+            @endif    
 
             <a href="/sesions/search" style="margin-right: 1rem;" class="btn btn-primary float-right">
                 Buscar
@@ -30,14 +32,17 @@
             <td>{{$sesion->date_start}} </td>
             <td>{{$sesion->date_end}} </td>
             <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/sesions/{{$sesion->id}}">Ver</a></td>
-            <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/sesions/{{$sesion->id}}/edit">Editar</a></td>
-            <td style="padding: 0.15rem;"> 
-                <form action="/sesions/{{$sesion->id}}" method="post">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
-                </form>                
-            </td>
+            @if($userl->rol == "admin")
+                <!-- <td style="padding: 0.15rem;"> <a class="btn btn-primary btn-sm" href="/sesions/{{$sesion->id}}/edit">Editar</a></td> -->
+                <td style="padding: 0.15rem;"> 
+                    <form action="/sesions/{{$sesion->id}}" method="post">
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input class="btn btn-primary btn-sm" type="submit" value="Borrar">
+                    </form>                
+                </td>
+            @endif 
+            
         </tr>
         @empty
         <tr>

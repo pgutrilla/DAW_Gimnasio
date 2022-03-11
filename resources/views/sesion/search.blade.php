@@ -13,9 +13,9 @@
             <input value="Buscar" type="submit" id="buscar">
         </form>
         <br>
-        <table id="resultado" class="table table-striped">
+        <div id="resultado" class="container-fluid">
                 
-        </table>
+        </div>
 
         </div>
     </div>

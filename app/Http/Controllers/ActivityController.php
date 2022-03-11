@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ActivityController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
    /**
      * Display a listing of the resource.
      *
@@ -14,9 +22,10 @@ class ActivityController extends Controller
      */
     public function index()
     {
+        $userl = Auth::user();
         $activities = Activity::all();
 
-        return view('activity.index', ['activities' => $activities]);
+        return view('activity.index', ['activities' => $activities, 'userl' => $userl]);
     }
 
     /**
@@ -37,6 +46,13 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string' ],
+            'description' => ['required', 'string' ],
+            'duration' => ['required', 'numeric' ],
+            'max_participants' => ['required', 'numeric' ],
+        ]);   
+
         $activity = Activity::create($request->all());
         return redirect('/activities');
     }
@@ -47,10 +63,10 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show( $id )
-    public function show( Activity $activity )
+    public function show( $id )
+    // public function show( Activity $activity )
     {
-        // $activity = Activity::find( $id );
+        $activity = Activity::find( $id );
         return view('activity.show', ['activity' => $activity]);
     }
 
@@ -61,8 +77,11 @@ class ActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function edit($id)
-    public function edit( Activity $activity )
+    // public function edit( Activity $activity )
+    public function edit( $id )
     {
+        $activity = Activity::find($id);
+
         return view('activity.edit', ['activity' => $activity]);
     }
 
@@ -75,6 +94,14 @@ class ActivityController extends Controller
      */
     public function update(Request $request, Activity $activity)
     {
+
+        $request->validate([
+            'name' => ['required', 'string' ],
+            'description' => ['required', 'string' ],
+            'duration' => ['required', 'numeric' ],
+            'max_participants' => ['required', 'numeric' ],
+        ]); 
+
         $activity->fill($request->all());
 
         $activity->save();

@@ -20,7 +20,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'dni',
+        'height',
+        'weight',
+        'birth_date',
+        'gender',
+        'password'
     ];
 
     /**
@@ -47,6 +52,18 @@ class User extends Authenticatable
     // }
 
     public function sesions() { 
-        return $this->belongsTo(Sesion::class);
+        return $this->belongsToMany(Sesion::class);
     }
+
+    public function addSesion( Sesion $sesion ) { 
+        // dd($this);
+       $this->sesions()->attach($sesion);
+    }
+
+    public function removeSesion( Sesion $sesion ) { 
+        // dd($this);
+       $this->sesions()->detach($sesion);
+    }
+
+    
 }

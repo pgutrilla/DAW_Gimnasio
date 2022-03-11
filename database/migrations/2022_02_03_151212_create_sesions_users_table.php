@@ -13,7 +13,7 @@ class CreateSesionsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sesions_users', function (Blueprint $table) {
+        Schema::create('sesion_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sesion_id');
             $table->unsignedBigInteger('user_id');

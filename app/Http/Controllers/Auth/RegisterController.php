@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
         // $date = Carbon::createFromFormat('m-d-Y', $data['weight']);
         // $strDate = $date->format('Y-m-d');
-
+        // dd( $data );
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

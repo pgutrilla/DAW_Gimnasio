@@ -15,7 +15,7 @@ class AddActivityToSesionTable extends Migration
     {
         Schema::table('sesions', function (Blueprint $table) {
             $table->unsignedBigInteger('activity_id');
-            $table->foreign('activity_id')->references('id')->on('activities');
+            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');;
         });
     }
 
@@ -26,9 +26,9 @@ class AddActivityToSesionTable extends Migration
      */
     public function down()
     {
-        Schema::table('sesions', function (Blueprint $table) {
-            $table->dropForeign('sesions_activity_id_foreign');
-            $table->dropColumn('activity_id');
-        });
+        // Schema::table('sesions', function (Blueprint $table) {
+        //     $table->dropForeign('sesions_activity_id_foreign');
+        //     $table->dropColumn('activity_id');
+        // });
     }
 }

@@ -43,7 +43,7 @@
                             <label for="height" class="col-md-4 col-form-label text-md-end">{{ __('Altura') }}</label>
 
                             <div class="col-md-6">
-                                <input id="height" type="number" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autocomplete="height" autofocus>
+                                <input id="height" type="number" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autocomplete="height" step="0.1" autofocus>
 
                                 @error('height')
                                     <span class="invalid-feedback" role="alert">

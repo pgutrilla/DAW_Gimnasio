@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,8 +23,14 @@ class UserController extends Controller
     {
         $userl = Auth::user();
 
-        $users = User::all();
-        return view('user.index', ['users' => $users, 'userl' => $userl]);
+        if($userl->rol == "admin"){
+            $users = User::all();
+            return view('user.index', ['users' => $users, 'userl' => $userl]);
+        } else {
+            // dd("hola");
+            return redirect("/users/$userl->id");
+        }
+        
     }
 
     /**
@@ -33,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return redirect('/users');
+        return view('user.create');
     }
 
     /**
@@ -44,7 +51,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
+        // dd($request);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'dni' => $request->dni,
+            'height' => $request->height,
+            'weight' => $request->weight,
+            'birth_date' => $request->birth,
+            'gender' => $request->sex,
+            'password' => Hash::make($request->password)
+        ]);
+        // dd($request);
         return redirect('/users');
     }
 
@@ -54,9 +72,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    public function show( User $user )
+    // public function show( User $user )
+    public function show( $id )
     {
+        $user = User::find($id);
+
         return view('user.show', ['user' => $user]);
     }
 
@@ -66,9 +86,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function edit($id)
-    public function edit( User $user )
+    // public function edit( User $user )
+    public function edit( $id )
     {
+        $user = User::find($id);
+
         return view('user.edit', ['user' => $user]);
     }
 
@@ -81,7 +103,26 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->fill($request->all());
+        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'height' => ['required', 'numeric' ],
+            'weight' => ['required', 'numeric' ],
+            'birth' => ['required', 'date' ],
+            'sex' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->dni = $request->dni;
+        $user->height = $request->height;
+        $user->weight = $request->weight;
+        $user->birth_date = $request->birth;
+        $user->gender = $request->sex;
+        $user->password =  Hash::make($request->password);
 
         $user->save();
         return redirect('/users');
